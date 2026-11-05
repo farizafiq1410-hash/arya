@@ -142,12 +142,12 @@ export const CertificationsView: React.FC = () => {
         </div>
 
         {/* Grid with clean hover effects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div key={categoryFilter} className="animate-fade-in-fast grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCerts.map((cert) => (
             <div
               key={cert.id}
               onClick={() => setSelectedCert(cert)}
-              className="group rounded-2xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 overflow-hidden cursor-pointer flex flex-col justify-between"
+              className="group rounded-2xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-500/8 hover:-translate-y-2 transition-all duration-300 ease-out overflow-hidden cursor-pointer flex flex-col justify-between"
             >
               <div className="relative aspect-[16/10] bg-slate-50 p-4 flex items-center justify-center border-b border-slate-100">
                 <img

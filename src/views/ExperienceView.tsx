@@ -181,16 +181,16 @@ export const ExperienceView: React.FC = () => {
           </button>
         </div>
       ) : viewMode === 'grid' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div key={`${selectedRole}-${selectedYear}-${viewMode}`} className="animate-fade-in-fast grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredExperiences.map((item) => (
             <div
               key={item.id}
               className={`group relative p-6 rounded-2xl bg-white border transition-all duration-300 ease-out flex flex-col justify-between cursor-default
-                hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-400
+                hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-400
                 ${item.isHighlight ? 'border-blue-200 shadow-xs' : 'border-slate-200'}`}
             >
-              {/* Subtle top accent bar that blooms on hover */}
-              <div className="absolute top-0 inset-x-6 h-0.5 bg-transparent group-hover:bg-blue-600 transition-colors duration-300 rounded-t-full" />
+              {/* Subtle top accent bar that expands smoothly on hover */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-0 bg-blue-600 group-hover:w-full transition-all duration-300 ease-out rounded-t-2xl" />
 
               <div className="space-y-3">
                 {/* Header Metadata */}
@@ -245,11 +245,11 @@ export const ExperienceView: React.FC = () => {
         </div>
       ) : (
         /* TIMELINE VIEW (WITH HOVER ILLUMINATION) */
-        <div className="space-y-3">
+        <div key={`${selectedRole}-${selectedYear}-${viewMode}`} className="animate-fade-in-fast space-y-3">
           {filteredExperiences.map((item) => (
             <div
               key={item.id}
-              className="group p-5 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-default hover:-translate-y-0.5"
+              className="group p-5 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 ease-out flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-default hover:-translate-y-1"
             >
               <div className="space-y-1.5 flex-1 text-left">
                 <div className="flex items-center gap-2 text-xs">

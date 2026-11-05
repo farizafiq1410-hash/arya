@@ -58,11 +58,13 @@ export default function App() {
 
       {/* Main Page Content Body */}
       <main className="flex-1">
-        {currentPage === 'home' && <HomeView onNavigate={navigateTo} />}
-        {currentPage === 'about' && <AboutView onNavigate={navigateTo} />}
-        {currentPage === 'experience' && <ExperienceView />}
-        {currentPage === 'certifications' && <CertificationsView />}
-        {currentPage === 'contact' && <ContactView />}
+        <div key={currentPage} className="animate-fade-in">
+          {currentPage === 'home' && <HomeView onNavigate={navigateTo} />}
+          {currentPage === 'about' && <AboutView onNavigate={navigateTo} />}
+          {currentPage === 'experience' && <ExperienceView />}
+          {currentPage === 'certifications' && <CertificationsView />}
+          {currentPage === 'contact' && <ContactView />}
+        </div>
       </main>
 
       {/* Minimalist Footer */}

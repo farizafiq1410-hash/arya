@@ -29,15 +29,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
       {/* HERO SECTION */}
       <section className="relative pt-8 sm:pt-16 pb-12 overflow-hidden">
         {/* Very subtle airy blue ambient background */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-100/50 blur-[100px] rounded-full pointer-events-none -z-10" />
-        <div className="absolute top-1/3 left-10 w-[300px] h-[300px] bg-sky-100/60 blur-[80px] rounded-full pointer-events-none -z-10" />
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-100/50 blur-[100px] rounded-full pointer-events-none -z-10 animate-glow-pulse" />
+        <div className="absolute top-1/3 left-10 w-[300px] h-[300px] bg-sky-100/60 blur-[80px] rounded-full pointer-events-none -z-10 animate-glow-pulse" style={{ animationDelay: '2.5s' }} />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Column: Typographic Hierarchy */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="lg:col-span-7 space-y-6 text-left animate-fade-in">
               {/* Kicker */}
-              <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100 shadow-xs">
                 <Mic className="w-3.5 h-3.5" />
                 <span>Public Speaker & Komunikator</span>
               </div>
@@ -63,7 +63,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
               <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="px-6 py-3.5 text-sm sm:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-sm hover:shadow-md hover:shadow-blue-500/20 transition-all duration-200 flex items-center gap-2 active:scale-95"
+                  className="px-6 py-3.5 text-sm sm:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-sm hover:shadow-md hover:shadow-blue-500/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2"
                 >
                   <span>Hubungi Saya</span>
                   <ArrowRight className="w-4 h-4 text-blue-100" />
@@ -71,7 +71,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
 
                 <button
                   onClick={() => onNavigate('experience')}
-                  className="px-5 py-3.5 text-sm sm:text-base font-medium text-slate-700 hover:text-blue-600 bg-white hover:bg-slate-50 rounded-xl border border-slate-200 shadow-sm transition-all flex items-center gap-2"
+                  className="px-5 py-3.5 text-sm sm:text-base font-medium text-slate-700 hover:text-blue-600 bg-white hover:bg-slate-50 rounded-xl border border-slate-200 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2"
                 >
                   <span>Lihat Pengalaman</span>
                   <ChevronRight className="w-4 h-4 text-slate-400" />
@@ -80,7 +80,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
                 <a
                   href={PROFILE_DATA.pdfPath}
                   download
-                  className="px-4 py-3.5 text-xs sm:text-sm font-medium text-slate-600 hover:text-blue-600 rounded-xl border border-transparent hover:border-slate-200 hover:bg-white transition-colors flex items-center gap-1.5"
+                  className="px-4 py-3.5 text-xs sm:text-sm font-medium text-slate-600 hover:text-blue-600 rounded-xl border border-transparent hover:border-slate-200 hover:bg-white hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-1.5"
                 >
                   <FileDown className="w-4 h-4 text-blue-600" />
                   <span>Unduh PDF</span>
@@ -106,9 +106,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            {/* Right Column: Clean Minimalist Portrait Card */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[360px] sm:max-w-[400px]">
+            {/* Right Column: Clean Minimalist Portrait Card with Soft Float */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end animate-fade-in-delayed">
+              <div className="relative w-full max-w-[360px] sm:max-w-[400px] animate-float-gentle">
                 {/* Subtle soft shadow backdrop */}
                 <div className="relative rounded-2xl bg-white p-2.5 border border-slate-200/80 shadow-xl shadow-slate-200/60 overflow-hidden group">
                   <div className="relative rounded-xl overflow-hidden bg-slate-50 aspect-[3/4] flex items-end justify-center">
@@ -116,12 +116,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
                       src={PROFILE_DATA.portraitImage}
                       alt="Achmad Arya Raqhi Fauzan, C.PSS."
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                       loading="eager"
                     />
 
                     {/* Minimalist floating label */}
-                    <div className="absolute bottom-3 inset-x-3 p-3 rounded-lg bg-white/95 backdrop-blur-sm border border-slate-200 shadow-sm text-left">
+                    <div className="absolute bottom-3 inset-x-3 p-3 rounded-lg bg-white/95 backdrop-blur-sm border border-slate-200 shadow-sm text-left transition-transform duration-300 group-hover:-translate-y-0.5">
                       <div className="text-xs font-bold text-slate-900">
                         {PROFILE_DATA.name}
                       </div>
